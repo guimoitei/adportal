@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATEMÁTICA - CAPÍTULO 1</title>
+    <link rel="stylesheet" href="../../../styles/educlick/capitulos.css">
+</head>
+<body>
+   <div class="barrar">
+        <h1>Matemática - Adição e Subtração</h1>
+   </div> 
+   
+   <!-- Questão 1 -->
+   <div class="divpai" id="questao1">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>1. Marina tem 300 conchas, pois ela gosta de colecionar</span>
+            <span>estes objetos, e ao longo do tempo, conseguiu mais 200.</span>
+            <span>Agora, quanto Marina tem no total?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(1, this, 300)">300</button>
+            <button onclick="verificarResposta(1, this, 500)">500</button>
+            <button onclick="verificarResposta(1, this, 200)">200</button>
+        </div>
+        <div id="feedback1" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 2 -->
+   <div class="divpai" id="questao2" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>2. João tinha 15 figurinhas em seu álbum. Ele comprou</span>
+            <span>um pacote com 8 figurinhas e ganhou mais 5 de seu amigo.</span>
+            <span>Quantas figurinhas João tem agora?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(2, this, 23)">23</button>
+            <button onclick="verificarResposta(2, this, 28)">28</button>
+            <button onclick="verificarResposta(2, this, 18)">18</button>
+        </div>
+        <div id="feedback2" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 3 -->
+   <div class="divpai" id="questao3" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>3. Uma escola tem 125 alunos no período da manhã</span>
+            <span>e 98 alunos no período da tarde. Quantos alunos</span>
+            <span>estudam nessa escola no total?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(3, this, 203)">203</button>
+            <button onclick="verificarResposta(3, this, 223)">223</button>
+            <button onclick="verificarResposta(3, this, 213)">213</button>
+        </div>
+        <div id="feedback3" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 4 -->
+   <div class="divpai" id="questao4" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>4. Carlos tinha R$ 75,00. Ele gastou R$ 32,00</span>
+            <span>com um livro e R$ 15,00 com um lanche.</span>
+            <span>Quanto dinheiro sobrou para Carlos?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(4, this, 28)">28</button>
+            <button onclick="verificarResposta(4, this, 43)">43</button>
+            <button onclick="verificarResposta(4, this, 38)">38</button>
+        </div>
+        <div id="feedback4" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 5 -->
+   <div class="divpai" id="questao5" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>5. Uma loja vendeu 45 camisetas na primeira semana</span>
+            <span>e 38 na segunda semana. Quantas camisetas</span>
+            <span>foram vendidas nas duas semanas?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(5, this, 73)">73</button>
+            <button onclick="verificarResposta(5, this, 83)">83</button>
+            <button onclick="verificarResposta(5, this, 93)">93</button>
+        </div>
+        <div id="feedback5" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 6 -->
+   <div class="divpai" id="questao6" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>6. Ana tinha 120 reais. Ela comprou um presente</span>
+            <span>por 45 reais e depois ganhou 30 reais de sua avó.</span>
+            <span>Com quanto Ana ficou no final?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(6, this, 105)">105</button>
+            <button onclick="verificarResposta(6, this, 95)">95</button>
+            <button onclick="verificarResposta(6, this, 75)">75</button>
+        </div>
+        <div id="feedback6" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 7 -->
+   <div class="divpai" id="questao7" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>7. Em um jogo, Marcos fez 245 pontos na primeira</span>
+            <span>fase e 178 pontos na segunda fase. Quantos pontos</span>
+            <span>Marcos fez no total?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(7, this, 413)">413</button>
+            <button onclick="verificarResposta(7, this, 423)">423</button>
+            <button onclick="verificarResposta(7, this, 433)">433</button>
+        </div>
+        <div id="feedback7" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 8 -->
+   <div class="divpai" id="questao8" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>8. Uma fábrica produziu 560 peças na segunda-feira</span>
+            <span>e 480 na terça-feira. Quantas peças foram</span>
+            <span>produzidas nesses dois dias?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(8, this, 1040)">1040</button>
+            <button onclick="verificarResposta(8, this, 940)">940</button>
+            <button onclick="verificarResposta(8, this, 1140)">1140</button>
+        </div>
+        <div id="feedback8" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 9 -->
+   <div class="divpai" id="questao9" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>9. Pedro tinha 85 bolinhas de gude. Ele perdeu 27</span>
+            <span>em um jogo, mas depois ganhou 15 de seu primo.</span>
+            <span>Com quantas bolinhas Pedro ficou?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(9, this, 63)">63</button>
+            <button onclick="verificarResposta(9, this, 73)">73</button>
+            <button onclick="verificarResposta(9, this, 58)">58</button>
+        </div>
+        <div id="feedback9" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 10 -->
+   <div class="divpai" id="questao10" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>10. Uma biblioteca tinha 320 livros. Ela recebeu uma</span>
+            <span>doação de 45 livros e comprou mais 30.</span>
+            <span>Quantos livros a biblioteca tem agora?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(10, this, 395)">395</button>
+            <button onclick="verificarResposta(10, this, 375)">375</button>
+            <button onclick="verificarResposta(10, this, 385)">385</button>
+        </div>
+        <div id="feedback10" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Tela de Resultado Final -->
+   <div class="divpai" id="resultadoFinal" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>Parabéns! Você completou o quiz!</span>
+            <span>Sua pontuação final: <span id="pontuacaoFinal">0</span>/10</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="reiniciarQuiz()">Jogar Novamente</button>
+        </div>
+    </div>
+   </div>
+
+   <script>
+        let questaoAtual = 1;
+        let pontuacao = 0;
+        
+        // Respostas corretas para cada questão
+        const respostasCorretas = {
+            1: 500,
+            2: 28,
+            3: 223,
+            4: 28,
+            5: 83,
+            6: 105,
+            7: 423,
+            8: 1040,
+            9: 73,
+            10: 395
+        };
+        
+        function verificarResposta(numQuestao, botaoClicado, valor) {
+            const respostaCorreta = respostasCorretas[numQuestao];
+            const todosBotoes = document.querySelectorAll(`#questao${numQuestao} .respostas button`);
+            const feedback = document.getElementById(`feedback${numQuestao}`);
+            
+            // Remove classes de todos os botões
+            todosBotoes.forEach(botao => {
+                botao.classList.remove('correto', 'errado');
+            });
+            
+            // Verifica se a resposta está correta
+            if (valor === respostaCorreta) {
+                botaoClicado.classList.add('correto');
+                feedback.textContent = 'Parabéns! Resposta correta!';
+                feedback.className = 'feedback correto';
+                pontuacao++;
+            } else {
+                botaoClicado.classList.add('errado');
+                feedback.textContent = 'Resposta incorreta. Tente novamente!';
+                feedback.className = 'feedback errado';
+                
+                // Mostra qual é a resposta correta
+                todosBotoes.forEach(botao => {
+                    if (parseInt(botao.textContent) === respostaCorreta) {
+                        botao.classList.add('correto');
+                    }
+                });
+            }
+            
+            feedback.style.display = 'block';
+            
+            // Avança para a próxima questão após 2 segundos
+            setTimeout(() => {
+                proximaQuestao(numQuestao);
+            }, 2000);
+        }
+        
+        function proximaQuestao(numQuestaoAtual) {
+            // Esconde a questão atual
+            document.getElementById(`questao${numQuestaoAtual}`).style.display = 'none';
+            
+            // Se ainda há questões, mostra a próxima
+            if (numQuestaoAtual < 10) {
+                document.getElementById(`questao${numQuestaoAtual + 1}`).style.display = 'flex';
+                questaoAtual = numQuestaoAtual + 1;
+            } else {
+                // Se é a última questão, mostra o resultado final
+                document.getElementById('pontuacaoFinal').textContent = pontuacao;
+                document.getElementById('resultadoFinal').style.display = 'flex';
+            }
+        }
+        
+        function reiniciarQuiz() {
+            // Reseta variáveis
+            questaoAtual = 1;
+            pontuacao = 0;
+            
+            // Esconde todas as questões e o resultado
+            for (let i = 1; i <= 10; i++) {
+                document.getElementById(`questao${i}`).style.display = 'none';
+                // Reseta os feedbacks
+                document.getElementById(`feedback${i}`).style.display = 'none';
+                
+                // Remove classes dos botões
+                const todosBotoes = document.querySelectorAll(`#questao${i} .respostas button`);
+                todosBotoes.forEach(botao => {
+                    botao.classList.remove('correto', 'errado');
+                });
+            }
+            
+            document.getElementById('resultadoFinal').style.display = 'none';
+            
+            // Mostra a primeira questão
+            document.getElementById('questao1').style.display = 'flex';
+        }
+   </script>
+</body>
+</html>

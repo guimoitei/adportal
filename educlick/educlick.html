@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educlick - Educação com Diversão</title>
+    <link rel="stylesheet" href="../styles/educlick/educlick.css">
+</head>
+<body>
+    <!-- Áudio simples -->
+    <audio id="meuAudio">
+        <source src="../baby-baby-kids-children-music-421645.mp3" type="audio/mpeg">
+        <source src="../baby-baby-kids-children-music-421645.mp3" type="audio/ogg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <!--MENU-->
+    <div class="divmenu" id="divmenu">
+        <button class="btnplay" id="btnplay" onclick="esconderDiv()">
+            <img class="imgbtnplay" src="https://copilot.microsoft.com/th/id/BCO.a8a696a3-93d2-4e5a-bb8a-4731629451e9.png">
+        </button>
+    </div>
+
+    <!--worlds-->
+    <div class="divworld">
+        <div class="barrar">
+            <h1 class="titulo">EduClick!</h1>
+        </div>
+        <div class="titulo2">
+            <h1>Salve o Universo Edu!</h1>
+            <h2>Missões:</h2>
+        </div>
+        <div class="divenigmas">
+            <a href="lectures/matematica.html">
+                <button class="matematica">Matematica</button>
+            </a>
+
+            <a href="lectures/portugues.html">
+                <button class="portugues">Portuguẽs</button>
+            </a>
+            
+        </div>
+    </div>
+
+    <script>
+        function esconderDiv() {
+            const div = document.getElementById('divmenu');
+            div.style.display = 'none';
+            
+            // Tocar o áudio quando o usuário clicar no botão
+            const audio = document.getElementById('meuAudio');
+            audio.play().catch(error => {
+                console.log('Erro ao reproduzir áudio:', error);
+            });
+        }
+
+        // Função removida pois estava duplicada
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: sans-serif;
+    display: flex;
+}
+
+.btnplay{
+    height: 200px;
+    width: 200px;
+    background-color: transparent;
+    border: none;
+}
+
+.imgbtnplay{
+    height: 200px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.divmenu {
+    background-image: url("https://copilot.microsoft.com/th/id/BCO.a85192ac-2f35-4b38-95b4-24d43ed13c8e.png");
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Mude para flex-end */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding-bottom: 50px; /* Espaço do fundo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.titulo{
+    color: yellow;
+    font-size: 90px;
+}
+
+.divworld{
+    background-image: url("https://img.freepik.com/vetores-gratis/cena-de-paisagem-em-branco-de-um-parque-natural-no-por-do-sol_1308-61312.jpg?semt=ais_hybrid&w=740&q=80");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.barrar{
+
+}
+
+.titulo2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+}
+
+.divenigmas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+}
+
+.matematica{
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    border: 3px solid gainsboro;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.portugues{
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    background-color: aquamarine;
+    border: 3px solid gainsboro;
+    font-weight: bold;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.divlateral{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden; /* Impede o scroll na página de login */
+    background-image: url("https://www.patronatoplbm.com.br/wp-content/uploads/2023/06/formacao_como-escolher-a-melhor-escola-para-os-filhos.jpg");
+    background-size: cover;
+}
+
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Coluna da Imagem (Direita) */
+.login-image {
+    flex: 1;
+    background: url("") no-repeat center center;
+    background-size: cover;
+}
+
+/* Coluna do Formulário (Esquerda) */
+.login-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #ffffff;
+    width: 400px;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+.logo {
+    margin-bottom: 24px;
+}
+
+.logo img {
+    filter: invert(27%) sepia(96%) saturate(1637%) hue-rotate(198deg) brightness(97%) contrast(101%);
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 32px;
+    font-weight: normal;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+}
+
+button.entrar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0056b3;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.entrar:hover {
+    background-color: #004494;
+}
+
+.links-uteis {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.links-uteis a {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.links-uteis a:hover {
+    text-decoration: underline;
+}
+
+button.google-login {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: background-color 0.3s;
+}
+
+button.google-login img {
+    width: 20px;
+    height: 20px;
+}
+
+button.google-login:hover {
+    background-color: #f9f9f9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .login-image {
+        display: none; /* Esconde a imagem em telas pequenas */
+    }
+    
+    .login-form {
+        flex: 1;
+        width: 100%;
+    }
+
+    .form-wrapper {
+        padding: 20px;
+    }
+}

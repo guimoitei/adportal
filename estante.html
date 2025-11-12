@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estante de Conteúdo</title>
+    <link rel="stylesheet" href="styles/painel.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url("https://www.patronatoplbm.com.br/wp-content/uploads/2023/06/formacao_como-escolher-a-melhor-escola-para-os-filhos.jpg");
+    background-size: cover;
+    /* ADIÇÕES */
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,245,255,0.8) 100%);
+    z-index: -1;
+}
+
+.accessibility-toolbar {
+    /* ADIÇÕES */
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    padding: 10px 20px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.accessibility-toolbar span {
+    /* ADIÇÕES */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.accessibility-toolbar span:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.1);
+}
+
+.top-nav {
+    /* ADIÇÕES */
+    background: white;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    padding: 15px 30px;
+    backdrop-filter: blur(10px);
+}
+
+.nav-links a {
+    /* ADIÇÕES */
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 8px 15px;
+}
+
+.nav-links a:hover {
+    background: #f0f5ff;
+    transform: translateY(-2px);
+}
+
+.nav-links a.active {
+    /* ADIÇÕES */
+    background: #e6f0ff;
+    box-shadow: 0 2px 8px rgba(0,86,179,0.2);
+}
+
+.nav-right span {
+    /* ADIÇÕES */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.nav-right span:hover {
+    background: #f5f5f5;
+    color: #0056b3;
+}
+
+.profile-circle {
+    /* ADIÇÕES */
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,86,179,0.3);
+}
+
+.profile-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,86,179,0.4);
+}
+
+.btn-sair-nav {
+    /* ADIÇÕES */
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.btn-sair-nav:hover {
+    background: #ffebee;
+    color: #d32f2f;
+    transform: translateY(-2px);
+}
+
+.div-pai {
+    /* ADIÇÕES */
+    background: rgba(255,255,255,0.95);
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.div-pai h1 {
+    /* ADIÇÕES */
+    color: #0056b3;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.div-pai h2 {
+    /* ADIÇÕES */
+    color: #666;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.div-livros {
+    /* ADIÇÕES */
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid #0056b3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-livros:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.div-livros span {
+    /* ADIÇÕES */
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333;
+}
+
+.div-livros button {
+    /* ADIÇÕES */
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,86,179,0.3);
+}
+
+.div-livros button:hover {
+    background: linear-gradient(135deg, #004494, #002e65);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,86,179,0.4);
+}
+
+/* ADIÇÕES PARA ANIMAÇÕES */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.div-pai {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.div-livros {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ADIÇÕES PARA RESPONSIVIDADE EXTRA */
+@media (max-width: 768px) {
+    .div-pai {
+        margin: 20px;
+        padding: 25px;
+    }
+    
+    .div-livros {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* ESTILOS DO LOGIN (MANTIDOS E ADICIONADOS) */
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.login-image {
+    flex: 1;
+    background: url("") no-repeat center center;
+    background-size: cover;
+    /* ADIÇÕES */
+    position: relative;
+}
+
+.login-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,86,179,0.8) 0%, rgba(0,61,130,0.9) 100%);
+}
+
+.login-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background-color: #ffffff;
+    width: 400px;
+    /* ADIÇÕES */
+    box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    /* ADIÇÕES */
+    animation: fadeIn 0.8s ease-out;
+}
+
+.logo {
+    margin-bottom: 24px;
+}
+
+.logo img {
+    filter: invert(27%) sepia(96%) saturate(1637%) hue-rotate(198deg) brightness(97%) contrast(101%);
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 32px;
+    font-weight: normal;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 16px;
+    /* ADIÇÕES */
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+    transform: translateY(-2px);
+}
+
+button.entrar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0056b3;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* ADIÇÕES */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,86,179,0.3);
+}
+
+button.entrar:hover {
+    background-color: #004494;
+    /* ADIÇÕES */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,86,179,0.4);
+}
+
+button.entrar:active {
+    transform: translateY(0);
+}
+
+.links-uteis {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 32px;
+}
+
+.links-uteis a {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 14px;
+    /* ADIÇÕES */
+    transition: all 0.3s ease;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.links-uteis a:hover {
+    text-decoration: underline;
+    /* ADIÇÕES */
+    background: #f0f5ff;
+}
+
+button.google-login {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: background-color 0.3s;
+    /* ADIÇÕES */
+    transition: all 0.3s ease;
+}
+
+button.google-login:hover {
+    background-color: #f9f9f9;
+    /* ADIÇÕES */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .login-image {
+        display: none;
+    }
+    
+    .login-form {
+        flex: 1;
+        width: 100%;
+    }
+
+    .form-wrapper {
+        padding: 20px;
+    }
+}
+</style>
+
+<body>
+
+    <div class="accessibility-toolbar">
+        <span class="material-icons">hearing</span>
+        <span class="material-icons">volume_up</span>
+        <span class="material-icons">visibility</span>
+    </div>
+
+    
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="materiais/icon AD.png" height="25">
+            </div>
+            <div class="nav-links">
+                <a href="painel.html" class="active"><span class="material-icons">home</span>Início</a>
+                <a href="em-breve.html"><span class="material-icons">school</span>Sala de aula</a>
+                <a href="avaliacoes.html"><span class="material-icons">assignment</span>Atividades</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <span class="material-icons">notifications</span>
+            <span class="material-icons">help_outline</span>
+            <div class="profile-circle" id="user-initial">G</div>
+            <a href="index.html">
+                <button id="btn-sair" class="btn-sair-nav">
+                <span class="material-icons">logout</span>Sair
+            </button>
+            </a>
+            
+        </div>
+    </nav>
+
+    <div class="div-pai">
+        <h1>Estante de Conteúdo</h1>
+        <h2>Apostilas Didáticas do Aprender é Demais</h2>
+        <div class="div-livros">
+            <span>Matemática 5° ano Capitulo 1</span>
+            <a href="materiais/Livro de Matemática 5° ano.pdf">
+                <button>Baixar em PDF</button>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

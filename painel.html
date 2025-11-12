@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Aluno - Aprender é Demais</title>
+    <link rel="stylesheet" href="styles/painel.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="accessibility-toolbar">
+        <span class="material-icons">hearing</span>
+        <span class="material-icons">volume_up</span>
+        <span class="material-icons">visibility</span>
+    </div>
+
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="materiais/icon AD.png" height="25">
+            </div>
+            <div class="nav-links">
+                <a href="painel.html" class="active"><span class="material-icons">home</span>Início</a>
+                <a href="em-breve.html"><span class="material-icons">school</span>Sala de aula</a>
+                <a href="avaliacoes.html"><span class="material-icons">assignment</span>Atividades</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <span class="material-icons">notifications</span>
+            <span class="material-icons">help_outline</span>
+            <div class="profile-circle" id="user-initial">G</div>
+            <a href="index.html">
+                <button id="btn-sair" class="btn-sair-nav">
+                <span class="material-icons">logout</span>Sair
+            </button>
+            </a>
+            
+        </div>
+    </nav>
+
+    <div class="main-container">
+        
+        <aside class="sidebar-left">
+            <div class="profile-card">
+                <div class="profile-initial-large" id="user-initial-large">G</div>
+                <h3 id="user-name">CARREGANDO...</h3>
+                <p id="user-tipo">Carregando...</p>
+                <p id="user-turma">Carregando...</p>
+                <p id="user-escola">Carregando...</p>
+            </div>
+            
+            <div class="news-card">
+                <h3><span class="material-icons">lightbulb</span>Notícias</h3>
+                <div class="news-item">
+                    <h4>Guia da Plataforma</h4>
+                    <p>Acesse e veja como navegar no nosso Portal</p>
+                </div>
+            </div>
+        </aside>
+        
+        <main class="content-main">
+            <div class="content-header">
+                <h2>Atalhos rápidos</h2>
+                <span class="material-icons edit-icon">edit</span>
+            </div>
+            
+            <div class="shortcuts-grid">
+                <a href="estante.html" class="shortcut-card">
+                    <span class="material-icons icon-blue">menu_book</span>
+                    <p>Estante de Conteúdo</p>
+                </a>
+                
+                <a href="educlick/educlick.html" class="shortcut-card">
+                    <span class="material-icons icon-purple">public</span>
+                    <p>Universo Edu</p>
+                </a>
+                
+                <a href="#" class="shortcut-card add-shortcut">
+                    <span class="material-icons">add</span>
+                    <p>Adicionar atalho</p>
+                </a>
+            </div>
+            
+            <!-- Sistema de Avaliação Virtual -->
+            <div class="avaliacao-virtual">
+                <h2>Sistema de Avaliação Virtual</h2>
+                
+                <div class="avaliacao-grid">
+                    <div class="avaliacao-card">
+                        <h3>II.</h3>
+                        <p class="avaliacao-label">Média Geral</p>
+                        <p class="avaliacao-value">0.0</p>
+                    </div>
+                    
+                    <div class="avaliacao-card">
+                        <h3>III.</h3>
+                        <p class="avaliacao-label">Total de Atividades</p>
+                        <p class="avaliacao-value">0</p>
+                    </div>
+                    
+                    <div class="avaliacao-card">
+                        <h3>IV.</h3>
+                        <p class="avaliacao-label">Exibir:</p>
+                        <p class="avaliacao-value">Todas as Matérias</p>
+                    </div>
+                    
+                    <div class="avaliacao-card">
+                        <h3>V.</h3>
+                        <p class="avaliacao-label">Média de Aprovação</p>
+                        <p class="avaliacao-value">7.0</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Avaliações Prontas para Impressão -->
+            <div class="download-section">
+                <h2>
+                    <span class="material-icons icon-blue"></span>
+                    Avaliações Prontas para Impressão
+                </h2>
+                <div class="download-content">
+                    <p>Nenhum material de download disponível.</p>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Detalhes por Matéria -->
+            <div class="materias-section">
+                <h2>Detalhes por Matéria</h2>
+                <table class="materias-table">
+                    <thead>
+                        <tr>
+                            <th>Matéria</th>
+                            <th>Notas (Histórico)</th>
+                            <th>Média</th>
+                            <th>Status</th>
+                            <th>% Presença</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="5" class="empty-table">Nenhum dado disponível</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        
+        <aside class="sidebar-right">
+            <div class="agenda-card">
+                <div class="agenda-header">
+                    <h3><span class="material-icons">calendar_today</span>Agenda</h3>
+                </div>
+                
+                <div class="calendar-nav">
+                    <span id="week-display">Semana Atual</span>
+                    <div class="nav-buttons">
+                        <span class="material-icons" id="prev-week">chevron_left</span>
+                        <button id="today-button">Hoje</button>
+                        <span class="material-icons" id="next-week">chevron_right</span>
+                    </div>
+                </div>
+                
+                <div class="calendar-week" id="calendar-week">
+                    <!-- JavaScript vai preencher aqui -->
+                </div>
+                
+                <div class="event-list" id="event-list-container">
+                    <p class="no-event">Selecione um dia para ver ou adicionar eventos.</p>
+                </div>
+            </div>
+
+            <div class="lembretes-card">
+                <div class="lembretes-header">
+                    <h3><span class="material-icons">notifications</span>Lembretes</h3>
+                    <button class="btn-add-lembrete" id="btn-add-lembrete">
+                        <span class="material-icons">add</span>
+                    </button>
+                </div>
+                
+                <div class="lembretes-list" id="lembretes-list-container">
+                    <p class="no-lembrete">Nenhum lembrete adicionado.</p>
+                </div>
+            </div>
+
+            <div class="educclick-message">
+                <p><strong>ECCLICK RUO:</strong> does not exist or is no longer available.</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modal Adicionar Evento -->
+    <div id="add-event-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Adicionar Evento</h2>
+            <p id="modal-date-display" class="modal-date-display"></p>
+            <form id="add-event-form">
+                <div class="input-group-modal">
+                    <label for="event-title">Título do Evento:</label>
+                    <input type="text" id="event-title" required>
+                </div>
+                <div class="input-group-modal">
+                    <label for="event-time">Hora (HH:MM):</label>
+                    <input type="time" id="event-time" value="10:00" required>
+                </div>
+                <button type="submit" class="btn-save-event">Salvar Evento</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Lembrete -->
+    <div id="add-lembrete-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Adicionar Lembrete</h2>
+            <form id="add-lembrete-form">
+                <div class="input-group-modal">
+                    <label for="lembrete-text">Lembrete:</label>
+                    <textarea id="lembrete-text" required placeholder="Digite seu lembrete..." rows="3"></textarea>
+                </div>
+                <div class="input-group-modal">
+                    <label for="lembrete-priority">Prioridade:</label>
+                    <select id="lembrete-priority">
+                        <option value="baixa">Baixa</option>
+                        <option value="media" selected>Média</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-save-event">Salvar Lembrete</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+    // ===== FUNCIONALIDADE COMPLETA =====
+    document.addEventListener('DOMContentLoaded', function() {
+        // ===== AGENDA INTERATIVA =====
+        let currentWeek = new Date();
+        
+        function updateCalendar() {
+            const weekDisplay = document.getElementById('week-display');
+            const calendarWeek = document.getElementById('calendar-week');
+            
+            const startOfWeek = new Date(currentWeek);
+            startOfWeek.setDate(currentWeek.getDate() - currentWeek.getDay());
+            
+            const endOfWeek = new Date(startOfWeek);
+            endOfWeek.setDate(startOfWeek.getDate() + 6);
+            
+            weekDisplay.textContent = formatDateRange(startOfWeek, endOfWeek);
+            
+            let calendarHTML = '';
+            const today = new Date();
+            
+            for (let i = 0; i < 7; i++) {
+                const dayDate = new Date(startOfWeek);
+                dayDate.setDate(startOfWeek.getDate() + i);
+                
+                const isToday = isSameDay(dayDate, today);
+                const isActive = isSameDay(dayDate, currentWeek);
+                
+                calendarHTML += `
+                    <div class="day ${isActive ? 'active' : ''}" data-date="${dayDate.toISOString()}">
+                        <p>${getDayName(i)}</p>
+                        <span>${dayDate.getDate()}</span>
+                    </div>
+                `;
+            }
+            
+            calendarWeek.innerHTML = calendarHTML;
+            
+            document.querySelectorAll('.day').forEach(day => {
+                day.addEventListener('click', function() {
+                    const date = new Date(this.dataset.date);
+                    currentWeek = date;
+                    updateCalendar();
+                    showEventsForDate(date);
+                });
+            });
+            
+            showEventsForDate(currentWeek);
+        }
+        
+        function showEventsForDate(date) {
+            const eventList = document.getElementById('event-list-container');
+            const events = getEventsForDate(date);
+            
+            if (events.length === 0) {
+                eventList.innerHTML = '<p class="no-event">Selecione um dia para ver ou adicionar eventos.</p>';
+            } else {
+                let eventsHTML = '';
+                events.forEach(event => {
+                    eventsHTML += `
+                        <div class="event-item">
+                            <span class="event-time">${event.time}</span>
+                            <span class="event-title">${event.title}</span>
+                            <button class="delete-event" data-date="${date.toDateString()}" data-index="${events.indexOf(event)}">×</button>
+                        </div>
+                    `;
+                });
+                eventList.innerHTML = eventsHTML;
+                
+                document.querySelectorAll('.delete-event').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        deleteEvent(this.dataset.date, parseInt(this.dataset.index));
+                    });
+                });
+            }
+        }
+        
+        function getEventsForDate(date) {
+            const events = JSON.parse(localStorage.getItem('agendaEvents') || '{}');
+            const dateKey = date.toDateString();
+            return events[dateKey] || [];
+        }
+        
+        function saveEvent(date, event) {
+            const events = JSON.parse(localStorage.getItem('agendaEvents') || '{}');
+            const dateKey = date.toDateString();
+            if (!events[dateKey]) events[dateKey] = [];
+            events[dateKey].push(event);
+            localStorage.setItem('agendaEvents', JSON.stringify(events));
+        }
+        
+        function deleteEvent(dateKey, index) {
+            const events = JSON.parse(localStorage.getItem('agendaEvents') || '{}');
+            if (events[dateKey]) {
+                events[dateKey].splice(index, 1);
+                localStorage.setItem('agendaEvents', JSON.stringify(events));
+                updateCalendar();
+            }
+        }
+        
+        document.getElementById('prev-week').addEventListener('click', function() {
+            currentWeek.setDate(currentWeek.getDate() - 7);
+            updateCalendar();
+        });
+        
+        document.getElementById('next-week').addEventListener('click', function() {
+            currentWeek.setDate(currentWeek.getDate() + 7);
+            updateCalendar();
+        });
+        
+        document.getElementById('today-button').addEventListener('click', function() {
+            currentWeek = new Date();
+            updateCalendar();
+        });
+        
+        // ===== ADICIONAR ATALHOS =====
+        function updateShortcutsDisplay() {
+            const shortcutsGrid = document.querySelector('.shortcuts-grid');
+            const shortcuts = JSON.parse(localStorage.getItem('userShortcuts') || '[]');
+            
+            let html = `
+                <a href="estante.html" class="shortcut-card">
+                    <span class="material-icons icon-blue">menu_book</span>
+                    <p>Estante de Conteúdo</p>
+                </a>
+                
+                <a href="educlick/educlick.html" class="shortcut-card">
+                    <span class="material-icons icon-purple">public</span>
+                    <p>Universo EduClick</p>
+                </a>
+            `;
+            
+            shortcuts.forEach((shortcut, index) => {
+                html += `
+                    <a href="${shortcut.url}" class="shortcut-card" target="_blank">
+                        <span class="material-icons">${shortcut.icon}</span>
+                        <p>${shortcut.name}</p>
+                        <button class="delete-shortcut" data-index="${index}">×</button>
+                    </a>
+                `;
+            });
+            
+            html += `
+                <a href="#" class="shortcut-card add-shortcut">
+                    <span class="material-icons">add</span>
+                    <p>Adicionar atalho</p>
+                </a>
+            `;
+            
+            shortcutsGrid.innerHTML = html;
+            
+            document.querySelector('.add-shortcut').addEventListener('click', function(e) {
+                e.preventDefault();
+                showAddShortcutModal();
+            });
+            
+            document.querySelectorAll('.delete-shortcut').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    deleteShortcut(parseInt(this.dataset.index));
+                });
+            });
+        }
+        
+        function showAddShortcutModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Adicionar Atalho</h2>
+                    <form id="add-shortcut-form">
+                        <div class="input-group-modal">
+                            <label for="shortcut-name">Nome do Atalho:</label>
+                            <input type="text" id="shortcut-name" required placeholder="Ex: Biblioteca Virtual">
+                        </div>
+                        <div class="input-group-modal">
+                            <label for="shortcut-url">URL:</label>
+                            <input type="url" id="shortcut-url" required placeholder="https://exemplo.com">
+                        </div>
+                        <div class="input-group-modal">
+                            <label for="shortcut-icon">Ícone:</label>
+                            <select id="shortcut-icon">
+                                <option value="menu_book">Livro</option>
+                                <option value="assignment">Tarefa</option>
+                                <option value="video_library">Vídeos</option>
+                                <option value="quiz">Quiz</option>
+                                <option value="school">Escola</option>
+                                <option value="library_books">Biblioteca</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-save-event">Adicionar Atalho</button>
+                    </form>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            modal.querySelector('.close-button').addEventListener('click', function() {
+                modal.remove();
+            });
+            
+            modal.querySelector('#add-shortcut-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                addNewShortcut();
+                modal.remove();
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+        
+        function addNewShortcut() {
+            const name = document.getElementById('shortcut-name').value;
+            const url = document.getElementById('shortcut-url').value;
+            const icon = document.getElementById('shortcut-icon').value;
+            
+            const shortcuts = JSON.parse(localStorage.getItem('userShortcuts') || '[]');
+            shortcuts.push({ name, url, icon });
+            localStorage.setItem('userShortcuts', JSON.stringify(shortcuts));
+            
+            updateShortcutsDisplay();
+        }
+        
+        function deleteShortcut(index) {
+            const shortcuts = JSON.parse(localStorage.getItem('userShortcuts') || '[]');
+            shortcuts.splice(index, 1);
+            localStorage.setItem('userShortcuts', JSON.stringify(shortcuts));
+            updateShortcutsDisplay();
+        }
+        
+        // ===== LEMBRETES PESSOAIS =====
+        function updateLembretesDisplay() {
+            const lembretesList = document.getElementById('lembretes-list-container');
+            const lembretes = JSON.parse(localStorage.getItem('userLembretes') || '[]');
+            
+            if (lembretes.length === 0) {
+                lembretesList.innerHTML = '<p class="no-lembrete">Nenhum lembrete adicionado.</p>';
+            } else {
+                let lembretesHTML = '';
+                lembretes.forEach((lembrete, index) => {
+                    lembretesHTML += `
+                        <div class="lembrete-item ${lembrete.priority}">
+                            <span class="lembrete-text">${lembrete.text}</span>
+                            <span class="lembrete-priority">${lembrete.priority}</span>
+                            <button class="delete-lembrete" data-index="${index}">×</button>
+                        </div>
+                    `;
+                });
+                lembretesList.innerHTML = lembretesHTML;
+                
+                document.querySelectorAll('.delete-lembrete').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        deleteLembrete(parseInt(this.dataset.index));
+                    });
+                });
+            }
+        }
+        
+        function saveLembrete(lembrete) {
+            const lembretes = JSON.parse(localStorage.getItem('userLembretes') || '[]');
+            lembretes.push(lembrete);
+            localStorage.setItem('userLembretes', JSON.stringify(lembretes));
+            updateLembretesDisplay();
+        }
+        
+        function deleteLembrete(index) {
+            const lembretes = JSON.parse(localStorage.getItem('userLembretes') || '[]');
+            lembretes.splice(index, 1);
+            localStorage.setItem('userLembretes', JSON.stringify(lembretes));
+            updateLembretesDisplay();
+        }
+        
+        // ===== MODAIS =====
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+        
+        // Event Listeners
+        document.getElementById('btn-add-lembrete').addEventListener('click', function() {
+            showModal('add-lembrete-modal');
+        });
+        
+        document.querySelectorAll('.close-button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const modal = this.closest('.modal');
+                modal.style.display = 'none';
+            });
+        });
+        
+        document.getElementById('add-event-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('event-title').value;
+            const time = document.getElementById('event-time').value;
+            
+            saveEvent(currentWeek, { title, time });
+            closeModal('add-event-modal');
+            this.reset();
+            updateCalendar();
+        });
+        
+        document.getElementById('add-lembrete-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const text = document.getElementById('lembrete-text').value;
+            const priority = document.getElementById('lembrete-priority').value;
+            
+            saveLembrete({ text, priority });
+            closeModal('add-lembrete-modal');
+            this.reset();
+        });
+        
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+        
+        // ===== INICIALIZAÇÃO =====
+        updateCalendar();
+        updateShortcutsDisplay();
+        updateLembretesDisplay();
+        
+        // Funções auxiliares
+        function formatDateRange(start, end) {
+            const months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+            return `${start.getDate()} ${months[start.getMonth()]} - ${end.getDate()} ${months[end.getMonth()]}`;
+        }
+        
+        function getDayName(dayIndex) {
+            const days = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+            return days[dayIndex];
+        }
+        
+        function isSameDay(date1, date2) {
+            return date1.toDateString() === date2.toDateString();
+        }
+    });
+    </script>
+</body>
+</html>

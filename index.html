@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Aprender é Demais</title> 
+    <link rel="stylesheet" href="styles/styles.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    
+    <div class="login-container">
+        <div class="login-image"></div>
+        
+        <div class="login-form">
+            <div class="form-wrapper">
+                <div class="logo">
+                    <img src="materiais/icon AD.png" height="30">
+                </div>
+                
+                <h2>Olá! Bem-vindo ao Aprender é Demais. Entre com suas credenciais.</h2> 
+                
+                <div class="input-group">
+                    <label for="email">Login (E-mail)</label>
+                    <input class="email" id="email" type="email" value="guilherme@aluno.com">
+                </div>
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input class="senha" id="senha" type="password" value="SuaNovaSenhaForteAqui!">
+                </div>
+                
+                <button class="entrar" id="btn-login" onclick="fazerLogin()">Entrar</button>
+                
+                <div class="links-uteis">
+                    <a href="em-breve.html">Esqueci a senha</a>
+                    <a href="em-breve.html">Ajuda</a>
+                </div>
+                
+                <p id="error-message" style="color: red; text-align: center; font-size: 14px; display: none;"></p>
+                
+                <p style="margin-top: 15px; font-size: 14px; text-align: center;">
+                    Não tem conta? <a href="#" onclick="criarContaRapida()" style="color: #0056b3;">Clique aqui para criar uma</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { 
+            getAuth, 
+            createUserWithEmailAndPassword, 
+            signInWithEmailAndPassword,
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+        import { 
+            getFirestore, 
+            doc, 
+            setDoc,
+            getDoc
+        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDl-L1Z1ekzzSwDTQGbJTDvS2bE4isEGI8",
+            authDomain: "aprender-e-demais.firebaseapp.com",
+            projectId: "aprender-e-demais",
+            storageBucket: "aprender-e-demais.firebasestorage.app",
+            messagingSenderId: "303615175293",
+            appId: "1:303615175293:web:207dbef5c021f862a49f14"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app); 
+        const db = getFirestore(app);
+        
+        sessionStorage.removeItem('usuarioLogado'); 
+        
+        window.fazerLogin = fazerLogin;
+        window.criarContaRapida = criarContaRapida;
+
+        // *** REMOÇÃO DA CHECAGEM DE ESTADO DE LOGIN AQUI! ***
+        // A página de login só redireciona quando o botão "Entrar" é clicado e o login é bem-sucedido.
+
+
+        // --- FUNÇÃO DE LOGIN ---
+        async function fazerLogin() {
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const btnLogin = document.getElementById('btn-login');
+            const errorMsg = document.getElementById('error-message');
+
+            if (!email || !senha) {
+                alert('Por favor, preencha email e senha!');
+                return;
+            }
+            
+            btnLogin.textContent = "Verificando...";
+            btnLogin.disabled = true;
+            errorMsg.style.display = 'none';
+
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, senha);
+                
+                // Redirecionamento é o último passo da função
+                window.location.href = 'painel.html'; 
+
+            } catch (error) {
+                console.error("Erro no login:", error.code, error.message);
+                if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                    errorMsg.textContent = 'Email ou senha incorretos! Verifique a senha forte no Firebase.';
+                } else {
+                    errorMsg.textContent = 'Ocorreu um erro. Verifique sua conexão ou credenciais.';
+                }
+                errorMsg.style.display = 'block';
+                btnLogin.textContent = "Entrar";
+                btnLogin.disabled = false;
+            }
+        }
+
+        // --- FUNÇÃO DE CADASTRO RÁPIDO ---
+        async function criarContaRapida() {
+            const nome = prompt('Digite seu nome:');
+            if (!nome) return;
+            
+            const email = prompt('Digite seu email:');
+            if (!email) return;
+            
+            const senha = prompt('Digite sua senha (mínimo 6 caracteres):');
+            if (!senha || senha.length < 6) {
+                alert('Senha deve ter pelo menos 6 caracteres!');
+                return;
+            }
+            
+            const turma = prompt('Digite sua turma (ex: 5º ano A):');
+            if (!turma) return;
+            
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
+                const user = userCredential.user;
+
+                const novoUsuario = {
+                    nome: nome,
+                    email: email,
+                    turma: turma,
+                    tipo: 'estudante',
+                    dataCadastro: new Date().toISOString()
+                };
+                
+                await setDoc(doc(db, "usuarios", user.uid), novoUsuario);
+
+                alert('Conta criada com sucesso! Redirecionando...');
+                window.location.href = 'painel.html';
+
+            } catch (error) {
+                console.error("Erro ao criar conta:", error.code, error.message);
+                const errorMsg = document.getElementById('error-message');
+                if (error.code === 'auth/email-already-in-use') {
+                    errorMsg.textContent = 'Este email já está cadastrado!';
+                } else if (error.code === 'auth/weak-password') {
+                    errorMsg.textContent = 'Senha muito fraca! Tente novamente.';
+                } else {
+                    errorMsg.textContent = 'Ocorreu um erro ao criar a conta.';
+                }
+                errorMsg.style.display = 'block';
+            }
+        }
+        
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                fazerLogin();
+            }
+        });
+    </script>

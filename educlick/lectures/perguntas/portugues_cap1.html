@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTUGUÊS - LETRAS E SÍLABAS</title>
+    <link rel="stylesheet" href="../../../styles/educlick/capitulos.css">
+</head>
+<body>
+   <div class="barrar">
+        <h1>Português - Letras e Sílabas</h1>
+   </div> 
+   
+   <!-- Questão 1 -->
+   <div class="divpai" id="questao1">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>1. Quantas sílabas tem a palavra "CASA"?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(1, this, 1)">1 sílaba</button>
+            <button onclick="verificarResposta(1, this, 2)">2 sílabas</button>
+            <button onclick="verificarResposta(1, this, 3)">3 sílabas</button>
+        </div>
+        <div id="feedback1" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 2 -->
+   <div class="divpai" id="questao2" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>2. Qual palavra tem apenas 2 sílabas?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(2, this, 'BONECA')">BONECA</button>
+            <button onclick="verificarResposta(2, this, 'FLOR')">FLOR</button>
+            <button onclick="verificarResposta(2, this, 'ELEFANTE')">ELEFANTE</button>
+        </div>
+        <div id="feedback2" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 3 -->
+   <div class="divpai" id="questao3" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>3. Quantas letras tem a palavra "GATO"?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(3, this, 3)">3 letras</button>
+            <button onclick="verificarResposta(3, this, 4)">4 letras</button>
+            <button onclick="verificarResposta(3, this, 5)">5 letras</button>
+        </div>
+        <div id="feedback3" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 4 -->
+   <div class="divpai" id="questao4" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>4. Qual palavra é monossílaba (tem 1 sílaba)?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(4, this, 'PÉ')">PÉ</button>
+            <button onclick="verificarResposta(4, this, 'CADEIRA')">CADEIRA</button>
+            <button onclick="verificarResposta(4, this, 'BANANA')">BANANA</button>
+        </div>
+        <div id="feedback4" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 5 -->
+   <div class="divpai" id="questao5" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>5. Quantas sílabas tem a palavra "BORBOLETA"?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(5, this, 3)">3 sílabas</button>
+            <button onclick="verificarResposta(5, this, 4)">4 sílabas</button>
+            <button onclick="verificarResposta(5, this, 5)">5 sílabas</button>
+        </div>
+        <div id="feedback5" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 6 -->
+   <div class="divpai" id="questao6" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>6. Qual palavra é trissílaba (tem 3 sílabas)?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(6, this, 'SOL')">SOL</button>
+            <button onclick="verificarResposta(6, this, 'JANELA')">JANELA</button>
+            <button onclick="verificarResposta(6, this, 'COMPUTADOR')">COMPUTADOR</button>
+        </div>
+        <div id="feedback6" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 7 -->
+   <div class="divpai" id="questao7" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>7. Quantas vogais tem a palavra "ELEFANTE"?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(7, this, 3)">3 vogais</button>
+            <button onclick="verificarResposta(7, this, 4)">4 vogais</button>
+            <button onclick="verificarResposta(7, this, 5)">5 vogais</button>
+        </div>
+        <div id="feedback7" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 8 -->
+   <div class="divpai" id="questao8" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>8. Qual palavra tem mais consoantes?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(8, this, 'ÁRVORE')">ÁRVORE</button>
+            <button onclick="verificarResposta(8, this, 'LUZ')">LUZ</button>
+            <button onclick="verificarResposta(8, this, 'OI')">OI</button>
+        </div>
+        <div id="feedback8" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 9 -->
+   <div class="divpai" id="questao9" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>9. Quantas sílabas tem a palavra "AUTOMÓVEL"?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(9, this, 4)">4 sílabas</button>
+            <button onclick="verificarResposta(9, this, 5)">5 sílabas</button>
+            <button onclick="verificarResposta(9, this, 6)">6 sílabas</button>
+        </div>
+        <div id="feedback9" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Questão 10 -->
+   <div class="divpai" id="questao10" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>10. Qual palavra é dissílaba (tem 2 sílabas)?</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="verificarResposta(10, this, 'MESA')">MESA</button>
+            <button onclick="verificarResposta(10, this, 'PARALELEPÍPEDO')">PARALELEPÍPEDO</button>
+            <button onclick="verificarResposta(10, this, 'UVA')">UVA</button>
+        </div>
+        <div id="feedback10" class="feedback"></div>
+    </div>
+   </div>
+   
+   <!-- Tela de Resultado Final -->
+   <div class="divpai" id="resultadoFinal" style="display:none">
+    <div class="enigma">
+        <div class="pergunta">
+            <span>Parabéns! Você completou o quiz!</span>
+            <span>Sua pontuação final: <span id="pontuacaoFinal">0</span>/10</span>
+        </div>
+        <div class="espacador"></div>
+        <div class="respostas">
+            <button onclick="reiniciarQuiz()">Jogar Novamente</button>
+        </div>
+    </div>
+   </div>
+
+   <script>
+        let questaoAtual = 1;
+        let pontuacao = 0;
+        
+        // Respostas corretas para cada questão
+        const respostasCorretas = {
+            1: 2,        // CASA = 2 sílabas
+            2: 'FLOR',   // FLOR = 2 sílabas
+            3: 4,        // GATO = 4 letras
+            4: 'PÉ',     // PÉ = monossílaba
+            5: 4,        // BORBOLETA = 4 sílabas
+            6: 'JANELA', // JANELA = 3 sílabas
+            7: 4,        // ELEFANTE = 4 vogais
+            8: 'ÁRVORE', // ÁRVORE = mais consoantes
+            9: 5,        // AUTOMÓVEL = 5 sílabas
+            10: 'MESA'   // MESA = 2 sílabas
+        };
+        
+        function verificarResposta(numQuestao, botaoClicado, valor) {
+            const respostaCorreta = respostasCorretas[numQuestao];
+            const todosBotoes = document.querySelectorAll(`#questao${numQuestao} .respostas button`);
+            const feedback = document.getElementById(`feedback${numQuestao}`);
+            
+            // Remove classes de todos os botões
+            todosBotoes.forEach(botao => {
+                botao.classList.remove('correto', 'errado');
+            });
+            
+            // Verifica se a resposta está correta
+            let respostaEstaCorreta = false;
+            
+            if (typeof respostaCorreta === 'number') {
+                respostaEstaCorreta = parseInt(botaoClicado.textContent) === respostaCorreta;
+            } else {
+                respostaEstaCorreta = botaoClicado.textContent === respostaCorreta;
+            }
+            
+            if (respostaEstaCorreta) {
+                botaoClicado.classList.add('correto');
+                feedback.textContent = 'Parabéns! Resposta correta!';
+                feedback.className = 'feedback correto';
+                pontuacao++;
+            } else {
+                botaoClicado.classList.add('errado');
+                feedback.textContent = 'Resposta incorreta. Tente novamente!';
+                feedback.className = 'feedback errado';
+                
+                // Mostra qual é a resposta correta
+                todosBotoes.forEach(botao => {
+                    let textoBotao = botao.textContent;
+                    if (typeof respostaCorreta === 'number') {
+                        if (parseInt(textoBotao) === respostaCorreta) {
+                            botao.classList.add('correto');
+                        }
+                    } else {
+                        if (textoBotao === respostaCorreta) {
+                            botao.classList.add('correto');
+                        }
+                    }
+                });
+            }
+            
+            feedback.style.display = 'block';
+            
+            // Avança para a próxima questão após 2 segundos
+            setTimeout(() => {
+                proximaQuestao(numQuestao);
+            }, 2000);
+        }
+        
+        function proximaQuestao(numQuestaoAtual) {
+            // Esconde a questão atual
+            document.getElementById(`questao${numQuestaoAtual}`).style.display = 'none';
+            
+            // Se ainda há questões, mostra a próxima
+            if (numQuestaoAtual < 10) {
+                document.getElementById(`questao${numQuestaoAtual + 1}`).style.display = 'flex';
+                questaoAtual = numQuestaoAtual + 1;
+            } else {
+                // Se é a última questão, mostra o resultado final
+                document.getElementById('pontuacaoFinal').textContent = pontuacao;
+                document.getElementById('resultadoFinal').style.display = 'flex';
+            }
+        }
+        
+        function reiniciarQuiz() {
+            // Reseta variáveis
+            questaoAtual = 1;
+            pontuacao = 0;
+            
+            // Esconde todas as questões e o resultado
+            for (let i = 1; i <= 10; i++) {
+                document.getElementById(`questao${i}`).style.display = 'none';
+                // Reseta os feedbacks
+                document.getElementById(`feedback${i}`).style.display = 'none';
+                
+                // Remove classes dos botões
+                const todosBotoes = document.querySelectorAll(`#questao${i} .respostas button`);
+                todosBotoes.forEach(botao => {
+                    botao.classList.remove('correto', 'errado');
+                });
+            }
+            
+            document.getElementById('resultadoFinal').style.display = 'none';
+            
+            // Mostra a primeira questão
+            document.getElementById('questao1').style.display = 'flex';
+        }
+   </script>
+</body>
+</html>
